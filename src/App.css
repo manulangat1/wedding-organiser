@@ -1,0 +1,108 @@
+.apps {
+  margin:0;
+  padding: 0;
+  font-size: 400;
+}
+li{
+  list-style-type: none;
+}
+footer{
+  background-color: #181818;
+}
+/* utilities */
+a{
+  text-decoration: none;
+}
+.btn {
+  display: inline-block;
+  padding: 1rem;
+  border: none;
+  background: #f9681f;
+}
+.primary-btn{
+  display: inline-block;
+  padding: 1rem;
+  border: none;
+  background: #f9681f;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+/* //Header styling */
+nav{
+  background-color: #333555;
+  width: 100%;
+  overflow: none;
+  height:60px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+nav #links{
+  justify-self: flex-end;
+}
+nav li{
+  display: inline;
+  padding-right: 0.5rem;
+}
+nav a{
+  color:#181818;
+}
+nav a:hover{
+  text-decoration: underline;
+}
+
+
+#dash{
+  /* max-height:100vh; */
+  max-width: 80%;
+  margin: auto;
+}
+
+/* add coponent */
+#add{
+  background: #181818;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  padding: 1.5rem;
+  color: #ffffff;
+}
+#add form{
+  width:80%;
+  margin: auto;
+  /* align-content: center; */
+}
+form label{
+  font-size: 1.5rem;
+  font-weight: 500;
+  display: inline-block;
+}
+form .form-control{
+  display: block;
+  width:100%;
+  margin-top:0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: #181818;
+  color: #885566;
+  font-size: 2rem;
+  border: 1px solid #f9681f;
+}
+
+
+/* venue display links */
+#displays{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 1rem;
+  padding: .5rem;
+  /* border: 100px solid #f9681f; */
+}
+
+footer{
+  background: #181818;
+  text-align-last: center;
+  padding: 2rem;
+  color:#fff;
+}
