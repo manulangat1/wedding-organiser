@@ -40,19 +40,19 @@ class  Add extends React.Component{
                         <input type="text" name="title" class="form-control" value={title} onChange={this.onChange} />
                     </div>
                     <div>
-                        <label>description</label>
+                        <label>Description</label>
                         <input type="text" name="description" class="form-control" value={description} onChange={this.onChange} />
                     </div>
                     <div>
-                        <label>price</label>
+                        <label>Price</label>
                         <input type="text" name="price" class="form-control" value={price} onChange={this.onChange} />
                     </div>
                     <div>
-                        <label>location</label>
+                        <label>Location</label>
                         <input type="text" name="location" class="form-control" value={location} onChange={this.onChange} />
                     </div>
                     <div>
-                        <label>capacity</label>
+                        <label>Capacity</label>
                         <input type="text" name="capacity" class="form-control" value={capacity} onChange={this.onChange} />
                     </div>
                     <input type="submit" value="Add Venue" class="primary-btn" />

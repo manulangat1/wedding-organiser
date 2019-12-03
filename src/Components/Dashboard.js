@@ -4,12 +4,18 @@ import Header from './layout/Header'
 import Footer from './layout/Footer'
 import View from './wedding/View'
 import Add from './wedding/Add'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class  Dashboard extends React.Component{
     state = {
         wedding:[]
     }
-    componentWillMount(){
+    componentDidMount(){
         this.setState({wedding:[
             {
               title: "Business website",
@@ -44,12 +50,20 @@ class  Dashboard extends React.Component{
         return (
             <div>
             <section>
-                <Header />
-                <div id="dash">
-                    <Add addVenue={this.handleAddVenue.bind(this)}/>
-                    <View  wedding={this.state.wedding}/>
-                </div>
-                <Footer />
+                <Router>
+                    <Switch>
+                    <Header />
+                    <div id="dash">
+                        <h1>hey</h1>
+                        {/* <Add addVenue={this.handleAddVenue.bind(this)}/> */}
+                        <View  wedding={this.state.wedding}/>
+                        {/* <Route exact path="/" component={View} /> */}
+                        {/* <Route path="/" render={props => (<View {...props} wedding={this.state.wedding}/>)}/> */}
+                        {/* <Route exact path="/add" component={Add}/> */}
+                    </div>
+                    <Footer />
+                </Switch>
+                </Router>
             </section>
             </div>
         )

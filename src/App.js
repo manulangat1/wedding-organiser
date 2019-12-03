@@ -1,46 +1,84 @@
 import React from 'react';
 import './App.css';
-import AddTodo from './Components/AddTodo';
-import DeleteTodo from './Components/DeleteTodo';
-import Todo from './Components/Todo'
 
 import Dashboard from './Components/Dashboard'
+import Header from  './Components/layout/Header'
+import Footer from './Components/layout/Footer'
+import View from './Components/wedding/View'
+import Add from './Components/wedding/Add'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class  App extends React.Component {
   constructor(){
     super()
     this.state = {
-      projects: []
+      wedding:[]
     }
   }
   componentWillMount(){
-    this.setState({projects:[
-      {
-        title: "Business website",
-        category: "Web Design"
-      },
-      {  title: "Social site",
-        category: "Mobiile developemnt"
-      },
-      {
-        title: "E-commerce shopping cart",
-        category: "Web developemnt"
-      }
-    ]});
+    this.setState(
+      {wedding:[
+        {
+          title: "Business website",
+          location: "Nakuru",
+          description:"blah blah blah ",
+          price:"340000",
+          capacity:"200"
+        },
+        {  title: "Social site",
+          location: "Nakuru",
+          description:"blah blah blah ",
+          price:"340000",
+          capacity:"200"
+        },
+        {
+          title: "E-commerce shopping cart",
+          location: "Nairobi",
+          description:"blah blah blah ",
+          price:"340000",
+          capacity:"200"
+        }
+      ]}
+    );
   }
-  handleAddProject(project){
-    console.log(project)
-    let projects = this.state.projects
-    projects.push(project)
-    this.setState({projects:projects})
-  }
+  handleAddVenue = venue => {
+    console.log(venue)
+    let wedding
+    wedding = this.state.wedding
+    wedding.push(venue)
+    this.setState({wedding})
+}
+  // handleAddProject(project){
+  //   console.log(project)
+  //   let projects = this.state.projects
+  //   projects.push(project)
+  //   this.setState({projects:projects})
+  // }
   render(){
     return (
       <div className="apps">
-      {/* <AddTodo addProject={this.handleAddProject.bind(this)} />
-      <Todo projects={this.state.projects} />
-      <DeleteTodo /> */}
-      <Dashboard />
+       <Router>
+                    
+                    <Header />
+                    <div id="dash">
+                        <Switch>
+                        <Route exact path="/" >
+                        <View  wedding={this.state.wedding}/>
+                        </Route>
+                        <Route exact path="/add">
+                        <Add addVenue={this.handleAddVenue.bind(this)}/>
+                        </Route>
+                        </Switch>
+                    </div>
+                    <Footer />
+                
+                </Router>
+      {/* <Dashboard /> */}
       </div>
     );
   }

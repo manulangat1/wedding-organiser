@@ -13,8 +13,10 @@ class  View extends React.Component{
         }
         return (
             <section>
+                <div class="container">
                 <div id="displays">
-                {weddingItem}
+                        {weddingItem}
+                </div>
                 </div>
             </section>
         )
