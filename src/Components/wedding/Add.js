@@ -1,5 +1,6 @@
 import React from 'react'
 import '../../App.css'
+import { db } from '../../firebase/firebase'
 
 class  Add extends React.Component{
     state = {
@@ -13,13 +14,19 @@ class  Add extends React.Component{
     onSubmit = e => {
         e.preventDefault();
         const {title,description,price,location,capacity} = this.state
-        // console.log(title,description,price,location,capacity)
         const venue = {title,description,price,location,capacity}
-        // if (venue == null){
-        //     confirm("Values are needed")
-        // } else{
             console.log(venue)
             this.props.addVenue(venue)
+            // db.database().ref('venues').push( venue );
+            db.collection("venues").doc(venue.title).set({
+                venue:venue
+            })
+            .then(function() {
+                console.log("Document successfully written!");
+            })
+            .catch(function(error) {
+                console.error("Error writing document: ", error);
+            });
             this.setState({
                 title:"",
                 description:"",
@@ -27,8 +34,6 @@ class  Add extends React.Component{
                 location:"",
                 capacity:""
             })
-        // }
-        
     }
     render(){
         const {title,description,price,location,capacity} = this.state
